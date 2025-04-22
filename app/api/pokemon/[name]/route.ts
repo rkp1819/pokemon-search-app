@@ -7,14 +7,14 @@ export async function GET(
   { params }: { params: { name: string } }
 ) {
   try {
-    const name = params.name;
+    const { name } = await params; 
     const pokemonData = await getPokemonDetails(name);
     return NextResponse.json(pokemonData);
   } catch (error) {
-    console.error(`API route error:`, error);
+    console.error('API route error:', error);
     return NextResponse.json(
       { error: `Failed to fetch details for Pokémon ${params.name}` },
       { status: 500 }
     );
   }
-} 
+}
