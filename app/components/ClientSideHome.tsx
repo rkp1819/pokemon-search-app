@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useFilteredPokemon } from "../hooks/useFilteredPokemon";
 import SearchForm from "./SearchForm";
 import PokemonCard from "./PokemonCard";
@@ -37,7 +37,7 @@ export default function ClientSideHome({
   } = useFilteredPokemon(pokemons);
 
   // Load more Pokemon only when user scrolls near the bottom
-  const loadMorePokemons = async () => {
+  const loadMorePokemons = useCallback(async () => {
     if (isLoading || !hasMore) return;
 
     setIsLoading(true);
@@ -78,7 +78,7 @@ export default function ClientSideHome({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [isLoading, hasMore, loadedCount, allPokemonList]);
 
   // Add scroll event listener to detect when to load more
   useEffect(() => {
@@ -96,7 +96,7 @@ export default function ClientSideHome({
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isLoading, hasMore, loadedCount]);
+  }, [isLoading, hasMore, loadMorePokemons]);
 
   return (
     <>
