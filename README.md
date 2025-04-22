@@ -1,22 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokémon Search App
+
+A Next.js application for searching and exploring Pokémon using the PokéAPI.
+
+## Features
+
+- **Pokémon Search**: Search for Pokémon by name
+- **Type Filtering**: Filter Pokémon by their types
+- **Responsive Design**: Optimized for both desktop and mobile views
+- **Detailed Information**: View detailed information about each Pokémon
+- **Server-Side Rendering**: Initial data loaded on the server
+- **Dynamic Routes**: Seamless navigation to Pokémon details
+- **Breadcrumb Navigation**: Easy navigation back to the home page
+
+## Tech Stack
+
+- **Next.js (App Router)**: For server-side rendering and routing
+- **TypeScript**: For type safety
+- **Tailwind CSS**: For styling
+- **PokéAPI**: For Pokemon data
+
+## Techniques Used
+
+1. **Server and Client Components**: Separation of server-rendered content and client-side interactivity
+2. **Custom Hooks**: Separation of concerns with custom React hooks
+3. **Server-Side Rendering**: Initial data is fetched on the server
+4. **Server Actions**: API calls are handled on the server
+5. **Dynamic Routes**: Each Pokémon has its own detail page
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
+
+Build for production:
+
+```bash
+npm run build
+```
+
+### Production
+
+Start the production server:
+
+```bash
+npm start
+```
+
+## Project Structure
+
+- `app/`: Main application directory (Next.js App Router)
+  - `page.tsx`: Home page
+  - `api/`: API routes
+  - `actions/`: Server actions
+  - `components/`: React components
+  - `hooks/`: Custom React hooks
+  - `pokemon/[name]/`: Dynamic route for Pokémon details
+
+## How it Works
+
+1. The home page displays a grid of Pokémon cards with search and filter options
+2. Users can search by name or filter by type
+3. Clicking a Pokémon card navigates to its detail page
+4. The detail page shows comprehensive information about the selected Pokémon
+5. Breadcrumb navigation allows for easy return to the home page
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
