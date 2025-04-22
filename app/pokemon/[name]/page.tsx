@@ -52,11 +52,13 @@ export default async function PokemonDetailPage({
   ];
 
   return (
-    <main className="min-h-screen p-4 md:p-8 max-w-6xl mx-auto">
-      <Breadcrumb items={breadcrumbItems} />
+    <main className="min-h-screen p-4 md:p-8 max-w-6xl mx-auto bg-gray-900">
+      <div className="bg-gray-800 p-4 rounded-lg shadow-md mb-4">
+        <Breadcrumb items={breadcrumbItems} />
+      </div>
 
       <div className="bg-white rounded-lg shadow-lg overflow-hidden mt-4">
-        <div className="p-6 bg-teal-200">
+        <div className="p-6 bg-blue-100">
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/3 flex justify-center">
               <div className="w-64 h-64 relative">
@@ -72,8 +74,10 @@ export default async function PokemonDetailPage({
             </div>
 
             <div className="w-full md:w-2/3 mt-6 md:mt-0">
-              <h1 className="text-3xl font-bold mb-2">{formattedName}</h1>
-              <p className="text-lg mb-2">
+              <h1 className="text-3xl font-bold mb-2 text-gray-800">
+                {formattedName}
+              </h1>
+              <p className="text-lg mb-2 text-gray-700">
                 #{pokemonData.id.toString().padStart(3, "0")}
               </p>
 
@@ -92,20 +96,24 @@ export default async function PokemonDetailPage({
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h2 className="text-xl font-semibold mb-2">Details</h2>
-                  <p>
+                  <h2 className="text-xl font-semibold mb-2 text-gray-800">
+                    Details
+                  </h2>
+                  <p className="text-gray-700">
                     <span className="font-medium">Height:</span>{" "}
                     {pokemonData.height / 10} m
                   </p>
-                  <p>
+                  <p className="text-gray-700">
                     <span className="font-medium">Weight:</span>{" "}
                     {pokemonData.weight / 10} kg
                   </p>
                 </div>
 
                 <div>
-                  <h2 className="text-xl font-semibold mb-2">Abilities</h2>
-                  <ul className="list-disc list-inside">
+                  <h2 className="text-xl font-semibold mb-2 text-gray-800">
+                    Abilities
+                  </h2>
+                  <ul className="list-disc list-inside text-gray-700">
                     {pokemonData.abilities.map((ability: string) => (
                       <li key={ability}>
                         {ability
@@ -125,12 +133,12 @@ export default async function PokemonDetailPage({
         </div>
 
         <div className="p-6">
-          <h2 className="text-2xl font-semibold mb-4">Stats</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Stats</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {pokemonData.stats.map((stat: PokemonStat) => (
               <div key={stat.name} className="mb-2">
                 <div className="flex justify-between mb-1">
-                  <span className="font-medium">
+                  <span className="font-medium text-gray-700">
                     {stat.name
                       .split("-")
                       .map(
@@ -139,7 +147,7 @@ export default async function PokemonDetailPage({
                       )
                       .join(" ")}
                   </span>
-                  <span>{stat.value}</span>
+                  <span className="text-gray-700">{stat.value}</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5">
                   <div
@@ -151,7 +159,9 @@ export default async function PokemonDetailPage({
             ))}
           </div>
 
-          <h2 className="text-2xl font-semibold mt-6 mb-4">Some Moves</h2>
+          <h2 className="text-2xl font-semibold mt-6 mb-4 text-gray-800">
+            Some Moves
+          </h2>
           <div className="flex flex-wrap gap-2">
             {pokemonData.moves.map((move: string) => (
               <span

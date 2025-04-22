@@ -50,7 +50,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, image, types }) => {
               priority
             />
           </div>
-          <h2 className="text-xl font-semibold mt-2 text-center">
+          <h2 className="text-xl font-semibold mt-2 text-center text-gray-800">
             {formattedName}
           </h2>
           <div className="flex gap-2 mt-2 justify-center">
@@ -69,7 +69,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, image, types }) => {
         <div className="px-4 pb-4 text-center">
           <Link
             href={`/pokemon/${name}`}
-            className="text-blue-500 hover:text-blue-700"
+            className="text-blue-600 hover:text-blue-800 font-medium"
           >
             Details →
           </Link>

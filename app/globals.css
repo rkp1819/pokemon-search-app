@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 @theme inline {
@@ -23,4 +28,66 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Add better contrast for Pokémon cards */
+.bg-white {
+  background-color: white;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+.text-center p {
+  color: white;
+}
+
+.bg-white h1, 
+.bg-white h2, 
+.bg-white h3, 
+.bg-white p, 
+.bg-white span:not([class*="bg-"]) {
+  color: #333;
+}
+
+/* Improve visibility of Pokémon names */
+.text-xl.font-semibold {
+  color: #333;
+  text-shadow: none;
+}
+
+/* Add better contrast for select boxes and inputs */
+select, input {
+  color: #333;
+  background-color: white;
+}
+
+option {
+  color: #333;
+  background-color: white;
+}
+
+select option:checked {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.Pokémon-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add better contrast for links */
+a {
+  color: #3b82f6;
 }
